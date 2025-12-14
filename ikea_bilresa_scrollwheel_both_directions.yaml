@@ -1,82 +1,82 @@
 blueprint:
-  name: "IKEA Bilresa Scroll Wheel – Helligkeit Steuerung (Rechts & Links)"
-  description: "Universelle Helligkeit-Steuerung für IKEA Bilresa Scroll Wheel mit separaten Konfigurationen für Rechts- und Linksdrehung"
+  name: "IKEA Bilresa Molette – Contrôle de luminosité (Droite & Gauche)"
+  description: "Contrôle universel de la luminosité pour la molette IKEA Bilresa, avec configurations séparées pour la rotation à droite et à gauche"
   domain: automation
   input:
     scrollwheel_right_event_entity:
-      name: "Scroll Wheel Event Entity – Rechtsdrehung"
-      description: "Event Entity des Scroll Wheels für Rechtsdrehung"
+      name: "Entité d’événement de la molette – Rotation à droite"
+      description: "Entité d’événement de la molette pour la rotation à droite"
       selector:
         entity:
           domain: event
-    
+
     scrollwheel_left_event_entity:
-      name: "Scroll Wheel Event Entity – Linksdrehung"
-      description: "Event Entity des Scroll Wheels für Linksdrehung"
+      name: "Entité d’événement de la molette – Rotation à gauche"
+      description: "Entité d’événement de la molette pour la rotation à gauche"
       selector:
         entity:
           domain: event
-    
+
     target_light:
-      name: "Ziellampe"
-      description: "Lampe die gesteuert werden soll"
+      name: "Lampe cible"
+      description: "Lampe à piloter"
       selector:
         entity:
           domain: light
-    
+
     scroll_right_direction:
-      name: "Aktion bei Rechtsdrehung"
-      description: "Was soll bei Rechtsdrehung passieren?"
+      name: "Action lors d’une rotation à droite"
+      description: "Que doit-il se passer lors d’une rotation à droite ?"
       selector:
         select:
           options:
-            - label: "Helligkeit erhöhen"
+            - label: "Augmenter la luminosité"
               value: "brighten"
-            - label: "Helligkeit reduzieren"
+            - label: "Réduire la luminosité"
               value: "dim"
       default: "brighten"
-    
+
     scroll_left_direction:
-      name: "Aktion bei Linksdrehung"
-      description: "Was soll bei Linksdrehung passieren?"
+      name: "Action lors d’une rotation à gauche"
+      description: "Que doit-il se passer lors d’une rotation à gauche ?"
       selector:
         select:
           options:
-            - label: "Helligkeit erhöhen"
+            - label: "Augmenter la luminosité"
               value: "brighten"
-            - label: "Helligkeit reduzieren"
+            - label: "Réduire la luminosité"
               value: "dim"
       default: "dim"
-    
+
     brightness_per_step_right:
-      name: "Helligkeit pro Schritt – Rechts (%)"
+      name: "Luminosité par cran – Droite (%)"
       default: 5
       selector:
         number:
           min: 1
           max: 20
-    
+
     brightness_per_step_left:
-      name: "Helligkeit pro Schritt – Links (%)"
+      name: "Luminosité par cran – Gauche (%)"
       default: 5
       selector:
         number:
           min: 1
           max: 20
-    
+
     startup_brightness_right:
-      name: "Starthelligkeit beim Einschalten – Rechts (%)"
+      name: "Luminosité de démarrage à l’allumage – Droite (%)"
       default: 20
-      description: "Helligkeit in %, mit der das Licht bei Rechtsdrehung eingeschaltet wird"
+      description: "Luminosité en %, avec laquelle la lumière est allumée lors d’une rotation à droite"
       selector:
         number:
           min: 5
           max: 50
-    
+
     startup_brightness_left:
-      name: "Starthelligkeit beim Einschalten – Links (%)"
+      name: "Luminosité de démarrage à l’allumage – Gauche (%)"
       default: 20
-      description: "Helligkeit in %, mit der das Licht bei Linksdrehung eingeschaltet wird"
+      description: "Luminosité en %, avec laquelle la lumière est allumée lors d’une rotation à gauche"
       selector:
         number:
           min: 5
@@ -100,37 +100,37 @@ action:
       startup_bright_right: !input startup_brightness_right
       startup_bright_left: !input startup_brightness_left
       target_entity: !input target_light
-      
-      # Bestimme Richtung basierend auf Trigger
+
+      # Déterminer le sens selon le déclencheur
       direction: >-
         {% if is_right_scroll %}
           {{ 1 if scroll_direction_right == 'brighten' else -1 }}
         {% else %}
           {{ 1 if scroll_direction_left == 'brighten' else -1 }}
         {% endif %}
-      
-      # Bestimme Helligkeit pro Schritt
+
+      # Déterminer la luminosité par cran
       bright_step: "{{ bright_step_right if is_right_scroll else bright_step_left }}"
-      
-      # Bestimme Startup-Helligkeit
+
+      # Déterminer la luminosité de démarrage
       startup_bright: "{{ startup_bright_right if is_right_scroll else startup_bright_left }}"
-      
-      # Event-Typ extrahieren
+
+      # Extraire le type d’événement
       event_type_str: "{{ state_attr(trigger.entity_id, 'event_type') }}"
-      
-      # Press-Count berechnen
+
+      # Calculer le nombre d’impulsions (press count)
       press_count:
         "{{ trigger.to_state.attributes.totalNumberOfPressesCounted | int(1) }}"
-      
-      # Helligkeitsänderung berechnen
+
+      # Calculer la variation de luminosité
       brightness_change: "{{ (bright_step | int(5) * press_count | int(1) * direction) }}"
-      
-      # Status prüfen
+
+      # Vérifier l’état
       light_on: "{{ states(target_entity) == 'on' }}"
       current_brightness: "{{ (state_attr(target_entity, 'brightness') or 0) | int(0) }}"
       brightness_in_pct: "{{ ((current_brightness / 255) * 100) | round(1) }}"
-      
-      # Neue Helligkeit mit Clamp berechnen
+
+      # Calculer la nouvelle luminosité (avec clamp)
       raw_brightness: "{{ (startup_bright | int(20)) + brightness_change }}"
       new_brightness: >-
         {% set b = raw_brightness | int %}
@@ -141,12 +141,12 @@ action:
         {% else %}
           {{ b }}
         {% endif %}
-  
+
   - if:
       - condition: template
         value_template: "{{ light_on }}"
     then:
-      # Licht ist AN – mit brightness_step_pct regeln
+      # Lumière ALLUMÉE – régler via brightness_step_pct
       - if:
           - condition: template
             value_template: "{{ press_count < 8 or direction > 0 }}"
@@ -157,24 +157,24 @@ action:
             data:
               brightness_step_pct: "{{ brightness_change }}"
         #else:
-          # Bei extremem Scroll → ausschalten
+          # En cas de molette “extrême” → éteindre
         #  - service: light.turn_off
         #    target:
         #      entity_id: !input target_light
     else:
-      # Licht ist AUS
+      # Lumière ÉTEINTE
       - if:
           - condition: template
             value_template: "{{ direction > 0 }}"
         then:
-          # Helligkeit erhöhen → Licht mit Startwert einschalten und dann anpassen
+          # Augmenter → allumer avec la valeur de démarrage puis ajuster
           - service: light.turn_on
             target:
               entity_id: !input target_light
             data:
               brightness_pct: "{{ new_brightness | int }}"
         else:
-          # Helligkeit reduzieren → Licht bleibt aus
+          # Réduire → la lumière reste éteinte
           - service: light.turn_off
             target:
               entity_id: !input target_light
