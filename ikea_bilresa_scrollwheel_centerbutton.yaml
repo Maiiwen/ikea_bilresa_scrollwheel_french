@@ -1,159 +1,159 @@
 blueprint:
-  name: "IKEA Bilresa – 3 Buttons"
-  description: "3 unabhängige Buttons (1×/2×/3× Klick + Hold-Dimmen pro Button) + Cover-Support"
+  name: "IKEA Bilresa – 3 boutons"
+  description: "3 boutons indépendants (clic 1×/2×/3× + maintien pour dimmer par bouton) + support des volets/rideaux (cover)"
   domain: automation
 
   input:
     # ════════════════════════════════════════════════════════════
-    # BUTTON 1
+    # BOUTON 1
     # ════════════════════════════════════════════════════════════
     button1_event_entity:
-      name: "Button 1 – Event Entity"
-      description: "Event Entity von Button 1"
+      name: "Bouton 1 – Entité d’événement"
+      description: "Entité d’événement du bouton 1"
       selector:
         entity:
           domain: event
-  
+
     button1_single_press_light:
-      name: "Button 1 – 1× Klick Lampe"
+      name: "Bouton 1 – Clic 1× – Lampe"
       selector:
         entity:
           domain: light
       default: ""
-  
+
     button1_single_press_action:
-      name: "Button 1 – 1× Klick Aktion"
+      name: "Bouton 1 – Clic 1× – Action"
       selector:
         select:
           options:
-            - label: "Toggle (Ein/Aus)"
+            - label: "Basculer (On/Off)"
               value: "toggle"
-            - label: "Einschalten"
+            - label: "Allumer"
               value: "turn_on"
-            - label: "Ausschalten"
+            - label: "Éteindre"
               value: "turn_off"
-            - label: "25% Helligkeit"
+            - label: "Luminosité 25%"
               value: "brightness_25"
-            - label: "50% Helligkeit"
+            - label: "Luminosité 50%"
               value: "brightness_50"
-            - label: "75% Helligkeit"
+            - label: "Luminosité 75%"
               value: "brightness_75"
-            - label: "100% Helligkeit"
+            - label: "Luminosité 100%"
               value: "brightness_100"
       default: "toggle"
-  
+
     button1_double_press_light:
-      name: "Button 1 – 2× Klick Lampe (optional)"
+      name: "Bouton 1 – Clic 2× – Lampe (optionnel)"
       selector:
         entity:
           domain: light
       default: ""
-  
+
     button1_double_press_type:
-      name: "Button 1 – 2× Klick Aktion-Typ"
+      name: "Bouton 1 – Clic 2× – Type d’action"
       selector:
         select:
           options:
-            - label: "Lampe (Helligkeit/Toggle)"
+            - label: "Lampe (luminosité/bascule)"
               value: "light"
-            - label: "Szene aktivieren"
+            - label: "Activer une scène"
               value: "scene"
       default: "light"
-  
+
     button1_double_press_light_action:
-      name: "Button 1 – 2× Klick Aktion (Lampe)"
+      name: "Bouton 1 – Clic 2× – Action (lampe)"
       selector:
         select:
           options:
-            - label: "Toggle (Ein/Aus)"
+            - label: "Basculer (On/Off)"
               value: "toggle"
-            - label: "Einschalten"
+            - label: "Allumer"
               value: "turn_on"
-            - label: "Ausschalten"
+            - label: "Éteindre"
               value: "turn_off"
-            - label: "25% Helligkeit"
+            - label: "Luminosité 25%"
               value: "brightness_25"
-            - label: "50% Helligkeit"
+            - label: "Luminosité 50%"
               value: "brightness_50"
-            - label: "75% Helligkeit"
+            - label: "Luminosité 75%"
               value: "brightness_75"
-            - label: "100% Helligkeit"
+            - label: "Luminosité 100%"
               value: "brightness_100"
       default: "brightness_50"
-  
+
     button1_double_press_scene:
-      name: "Button 1 – 2× Klick Szene (optional)"
+      name: "Bouton 1 – Clic 2× – Scène (optionnel)"
       selector:
         entity:
           domain: scene
       default: ""
-  
+
     button1_triple_press_light:
-      name: "Button 1 – 3× Klick Lampe (optional)"
+      name: "Bouton 1 – Clic 3× – Lampe (optionnel)"
       selector:
         entity:
           domain: light
       default: ""
-  
+
     button1_triple_press_type:
-      name: "Button 1 – 3× Klick Aktion-Typ"
+      name: "Bouton 1 – Clic 3× – Type d’action"
       selector:
         select:
           options:
-            - label: "Lampe (Helligkeit/Toggle)"
+            - label: "Lampe (luminosité/bascule)"
               value: "light"
-            - label: "Szene aktivieren"
+            - label: "Activer une scène"
               value: "scene"
       default: "light"
-  
-    button1_triple_press_light_action:  
-      name: "Button 1 – 3× Klick Aktion (Lampe)"
+
+    button1_triple_press_light_action:
+      name: "Bouton 1 – Clic 3× – Action (lampe)"
       selector:
         select:
           options:
-            - label: "Toggle (Ein/Aus)"
+            - label: "Basculer (On/Off)"
               value: "toggle"
-            - label: "Einschalten"
+            - label: "Allumer"
               value: "turn_on"
-            - label: "Ausschalten"
+            - label: "Éteindre"
               value: "turn_off"
-            - label: "25% Helligkeit"
+            - label: "Luminosité 25%"
               value: "brightness_25"
-            - label: "50% Helligkeit"
+            - label: "Luminosité 50%"
               value: "brightness_50"
-            - label: "75% Helligkeit"
+            - label: "Luminosité 75%"
               value: "brightness_75"
-            - label: "100% Helligkeit"
+            - label: "Luminosité 100%"
               value: "brightness_100"
       default: "brightness_100"
-  
-    button1_triple_press_scene:  
-      name: "Button 1 – 3× Klick Szene (optional)"
+
+    button1_triple_press_scene:
+      name: "Bouton 1 – Clic 3× – Scène (optionnel)"
       selector:
         entity:
           domain: scene
       default: ""
-  
+
     button1_hold_light:
-      name: "Button 1 – Halten/Loslassen Lampe (optional)"
+      name: "Bouton 1 – Maintenir/Relâcher – Lampe (optionnel)"
       selector:
         entity:
           domain: light
       default: ""
-  
+
     button1_hold_direction:
-      name: "Button 1 – Dimmrichtung beim Halten"
+      name: "Bouton 1 – Sens de variation (maintien)"
       selector:
         select:
           options:
-            - label: "Heller werden (erhöhen)"
+            - label: "Augmenter (plus lumineux)"
               value: "brighter"
-            - label: "Dunkler werden (reduzieren)"
+            - label: "Diminuer (plus sombre)"
               value: "darker"
       default: "brighter"
-  
+
     button1_hold_brightness_step:
-      name: "Button 1 – Helligkeit pro Schritt (%)"
+      name: "Bouton 1 – Variation par pas (%)"
       default: 5
       selector:
         number:
@@ -162,155 +162,155 @@ blueprint:
           unit_of_measurement: "%"
 
     # ════════════════════════════════════════════════════════════
-    # BUTTON 2
+    # BOUTON 2
     # ════════════════════════════════════════════════════════════
     button2_event_entity:
-      name: "Button 2 – Event Entity (optional)"
+      name: "Bouton 2 – Entité d’événement (optionnel)"
       selector:
         entity:
           domain: event
       default: ""
-  
+
     button2_single_press_light:
-      name: "Button 2 – 1× Klick Lampe"
+      name: "Bouton 2 – Clic 1× – Lampe"
       selector:
         entity:
           domain: light
       default: ""
-  
+
     button2_single_press_action:
-      name: "Button 2 – 1× Klick Aktion"
+      name: "Bouton 2 – Clic 1× – Action"
       selector:
         select:
           options:
-            - label: "Toggle (Ein/Aus)"
+            - label: "Basculer (On/Off)"
               value: "toggle"
-            - label: "Einschalten"
+            - label: "Allumer"
               value: "turn_on"
-            - label: "Ausschalten"
+            - label: "Éteindre"
               value: "turn_off"
-            - label: "25% Helligkeit"
+            - label: "Luminosité 25%"
               value: "brightness_25"
-            - label: "50% Helligkeit"
+            - label: "Luminosité 50%"
               value: "brightness_50"
-            - label: "75% Helligkeit"
+            - label: "Luminosité 75%"
               value: "brightness_75"
-            - label: "100% Helligkeit"
+            - label: "Luminosité 100%"
               value: "brightness_100"
       default: "toggle"
-  
+
     button2_double_press_light:
-      name: "Button 2 – 2× Klick Lampe (optional)"
+      name: "Bouton 2 – Clic 2× – Lampe (optionnel)"
       selector:
         entity:
           domain: light
       default: ""
-  
+
     button2_double_press_type:
-      name: "Button 2 – 2× Klick Aktion-Typ"
+      name: "Bouton 2 – Clic 2× – Type d’action"
       selector:
         select:
           options:
-            - label: "Lampe (Helligkeit/Toggle)"
+            - label: "Lampe (luminosité/bascule)"
               value: "light"
-            - label: "Szene aktivieren"
+            - label: "Activer une scène"
               value: "scene"
       default: "light"
-  
+
     button2_double_press_light_action:
-      name: "Button 2 – 2× Klick Aktion (Lampe)"
+      name: "Bouton 2 – Clic 2× – Action (lampe)"
       selector:
         select:
           options:
-            - label: "Toggle (Ein/Aus)"
+            - label: "Basculer (On/Off)"
               value: "toggle"
-            - label: "Einschalten"
+            - label: "Allumer"
               value: "turn_on"
-            - label: "Ausschalten"
+            - label: "Éteindre"
               value: "turn_off"
-            - label: "25% Helligkeit"
+            - label: "Luminosité 25%"
               value: "brightness_25"
-            - label: "50% Helligkeit"
+            - label: "Luminosité 50%"
               value: "brightness_50"
-            - label: "75% Helligkeit"
+            - label: "Luminosité 75%"
               value: "brightness_75"
-            - label: "100% Helligkeit"
+            - label: "Luminosité 100%"
               value: "brightness_100"
       default: "brightness_50"
-  
+
     button2_double_press_scene:
-      name: "Button 2 – 2× Klick Szene (optional)"
+      name: "Bouton 2 – Clic 2× – Scène (optionnel)"
       selector:
         entity:
           domain: scene
       default: ""
-  
+
     button2_triple_press_light:
-      name: "Button 2 – 3× Klick Lampe (optional)"
+      name: "Bouton 2 – Clic 3× – Lampe (optionnel)"
       selector:
         entity:
           domain: light
       default: ""
-  
+
     button2_triple_press_type:
-      name: "Button 2 – 3× Klick Aktion-Typ"
+      name: "Bouton 2 – Clic 3× – Type d’action"
       selector:
         select:
           options:
-            - label: "Lampe (Helligkeit/Toggle)"
+            - label: "Lampe (luminosité/bascule)"
               value: "light"
-            - label: "Szene aktivieren"
+            - label: "Activer une scène"
               value: "scene"
       default: "light"
-  
+
     button2_triple_press_light_action:
-      name: "Button 2 – 3× Klick Aktion (Lampe)"
+      name: "Bouton 2 – Clic 3× – Action (lampe)"
       selector:
         select:
           options:
-            - label: "Toggle (Ein/Aus)"
+            - label: "Basculer (On/Off)"
               value: "toggle"
-            - label: "Einschalten"
+            - label: "Allumer"
               value: "turn_on"
-            - label: "Ausschalten"
+            - label: "Éteindre"
               value: "turn_off"
-            - label: "25% Helligkeit"
+            - label: "Luminosité 25%"
               value: "brightness_25"
-            - label: "50% Helligkeit"
+            - label: "Luminosité 50%"
               value: "brightness_50"
-            - label: "75% Helligkeit"
+            - label: "Luminosité 75%"
               value: "brightness_75"
-            - label: "100% Helligkeit"
+            - label: "Luminosité 100%"
               value: "brightness_100"
       default: "brightness_100"
-  
+
     button2_triple_press_scene:
-      name: "Button 2 – 3× Klick Szene (optional)"
+      name: "Bouton 2 – Clic 3× – Scène (optionnel)"
       selector:
         entity:
           domain: scene
       default: ""
-  
+
     button2_hold_light:
-      name: "Button 2 – Halten/Loslassen Lampe (optional)"
+      name: "Bouton 2 – Maintenir/Relâcher – Lampe (optionnel)"
       selector:
         entity:
           domain: light
       default: ""
-  
+
     button2_hold_direction:
-      name: "Button 2 – Dimmrichtung beim Halten"
+      name: "Bouton 2 – Sens de variation (maintien)"
       selector:
         select:
           options:
-            - label: "Heller werden (erhöhen)"
+            - label: "Augmenter (plus lumineux)"
               value: "brighter"
-            - label: "Dunkler werden (reduzieren)"
+            - label: "Diminuer (plus sombre)"
               value: "darker"
       default: "brighter"
-  
+
     button2_hold_brightness_step:
-      name: "Button 2 – Helligkeit pro Schritt (%)"
+      name: "Bouton 2 – Variation par pas (%)"
       default: 5
       selector:
         number:
@@ -319,245 +319,245 @@ blueprint:
           unit_of_measurement: "%"
 
     # ════════════════════════════════════════════════════════════
-    # BUTTON 3 (mit Cover-Support)
+    # BOUTON 3 (avec support Cover)
     # ════════════════════════════════════════════════════════════
     button3_event_entity:
-      name: "Button 3 – Event Entity (optional)"
+      name: "Bouton 3 – Entité d’événement (optionnel)"
       selector:
         entity:
           domain: event
       default: ""
-  
+
     button3_single_press_light:
-      name: "Button 3 – 1× Klick Lampe"
+      name: "Bouton 3 – Clic 1× – Lampe"
       selector:
         entity:
           domain: light
       default: ""
-  
+
     button3_single_press_type:
-      name: "Button 3 – 1× Klick – Aktion-Typ"
+      name: "Bouton 3 – Clic 1× – Type d’action"
       selector:
         select:
           options:
-            - label: "Lampe (Helligkeit/Toggle)"
+            - label: "Lampe (luminosité/bascule)"
               value: "light"
-            - label: "Szene aktivieren"
+            - label: "Activer une scène"
               value: "scene"
-            - label: "Vorhang / Cover (Öffnen/Schließen)"
+            - label: "Volet / Rideau (ouvrir/fermer)"
               value: "cover"
       default: "light"
-  
+
     button3_single_press_action:
-      name: "Button 3 – 1× Klick Aktion"
+      name: "Bouton 3 – Clic 1× – Action"
       selector:
         select:
           options:
-            - label: "Toggle (Ein/Aus)"
+            - label: "Basculer (On/Off)"
               value: "toggle"
-            - label: "Einschalten"
+            - label: "Allumer"
               value: "turn_on"
-            - label: "Ausschalten"
+            - label: "Éteindre"
               value: "turn_off"
-            - label: "25% Helligkeit"
+            - label: "Luminosité 25%"
               value: "brightness_25"
-            - label: "50% Helligkeit"
+            - label: "Luminosité 50%"
               value: "brightness_50"
-            - label: "75% Helligkeit"
+            - label: "Luminosité 75%"
               value: "brightness_75"
-            - label: "100% Helligkeit"
+            - label: "Luminosité 100%"
               value: "brightness_100"
       default: "toggle"
-  
+
     button3_single_press_scene:
-      name: "Button 3 – 1× Klick Szene (optional)"
+      name: "Bouton 3 – Clic 1× – Scène (optionnel)"
       selector:
         entity:
           domain: scene
       default: ""
-  
+
     button3_single_press_cover:
-      name: "Button 3 – 1× Klick – Cover/Vorhang (optional)"
+      name: "Bouton 3 – Clic 1× – Cover/Volet (optionnel)"
       selector:
         entity:
           domain: cover
       default: ""
-  
+
     button3_single_press_cover_action:
-      name: "Button 3 – 1× Klick – Cover-Aktion"
+      name: "Bouton 3 – Clic 1× – Action Cover"
       selector:
         select:
           options:
-            - label: "Toggle"
+            - label: "Basculer"
               value: "toggle"
-            - label: "Öffnen"
+            - label: "Ouvrir"
               value: "open"
-            - label: "Schließen"
+            - label: "Fermer"
               value: "close"
             - label: "Stop"
               value: "stop"
       default: "open"
-  
+
     button3_double_press_light:
-      name: "Button 3 – 2× Klick Lampe (optional)"
+      name: "Bouton 3 – Clic 2× – Lampe (optionnel)"
       selector:
         entity:
           domain: light
       default: ""
-  
+
     button3_double_press_type:
-      name: "Button 3 – 2× Klick – Aktion-Typ"
+      name: "Bouton 3 – Clic 2× – Type d’action"
       selector:
         select:
           options:
-            - label: "Lampe (Helligkeit/Toggle)"
+            - label: "Lampe (luminosité/bascule)"
               value: "light"
-            - label: "Szene aktivieren"
+            - label: "Activer une scène"
               value: "scene"
-            - label: "Vorhang / Cover (Öffnen/Schließen)"
+            - label: "Volet / Rideau (ouvrir/fermer)"
               value: "cover"
       default: "light"
-  
+
     button3_double_press_light_action:
-      name: "Button 3 – 2× Klick Aktion (Lampe)"
+      name: "Bouton 3 – Clic 2× – Action (lampe)"
       selector:
         select:
           options:
-            - label: "Toggle (Ein/Aus)"
+            - label: "Basculer (On/Off)"
               value: "toggle"
-            - label: "Einschalten"
+            - label: "Allumer"
               value: "turn_on"
-            - label: "Ausschalten"
+            - label: "Éteindre"
               value: "turn_off"
-            - label: "25% Helligkeit"
+            - label: "Luminosité 25%"
               value: "brightness_25"
-            - label: "50% Helligkeit"
+            - label: "Luminosité 50%"
               value: "brightness_50"
-            - label: "75% Helligkeit"
+            - label: "Luminosité 75%"
               value: "brightness_75"
-            - label: "100% Helligkeit"
+            - label: "Luminosité 100%"
               value: "brightness_100"
       default: "brightness_50"
-  
+
     button3_double_press_scene:
-      name: "Button 3 – 2× Klick Szene (optional)"
+      name: "Bouton 3 – Clic 2× – Scène (optionnel)"
       selector:
         entity:
           domain: scene
       default: ""
-  
+
     button3_double_press_cover:
-      name: "Button 3 – 2× Klick – Cover/Vorhang (optional)"
+      name: "Bouton 3 – Clic 2× – Cover/Volet (optionnel)"
       selector:
         entity:
           domain: cover
       default: ""
-  
+
     button3_double_press_cover_action:
-      name: "Button 3 – 2× Klick – Cover-Aktion"
+      name: "Bouton 3 – Clic 2× – Action Cover"
       selector:
         select:
           options:
-            - label: "Toggle"
+            - label: "Basculer"
               value: "toggle"
-            - label: "Öffnen"
+            - label: "Ouvrir"
               value: "open"
-            - label: "Schließen"
+            - label: "Fermer"
               value: "close"
             - label: "Stop"
               value: "stop"
       default: "open"
-  
+
     button3_triple_press_light:
-      name: "Button 3 – 3× Klick Lampe (optional)"
+      name: "Bouton 3 – Clic 3× – Lampe (optionnel)"
       selector:
         entity:
           domain: light
       default: ""
-  
+
     button3_triple_press_type:
-      name: "Button 3 – 3× Klick Aktion-Typ"
+      name: "Bouton 3 – Clic 3× – Type d’action"
       selector:
         select:
           options:
-            - label: "Lampe (Helligkeit/Toggle)"
+            - label: "Lampe (luminosité/bascule)"
               value: "light"
-            - label: "Szene aktivieren"
+            - label: "Activer une scène"
               value: "scene"
-            - label: "Vorhang / Cover (Öffnen/Schließen)"
+            - label: "Volet / Rideau (ouvrir/fermer)"
               value: "cover"
       default: "light"
-  
+
     button3_triple_press_light_action:
-      name: "Button 3 – 3× Klick Aktion (Lampe)"
+      name: "Bouton 3 – Clic 3× – Action (lampe)"
       selector:
         select:
           options:
-            - label: "Toggle (Ein/Aus)"
+            - label: "Basculer (On/Off)"
               value: "toggle"
-            - label: "Einschalten"
+            - label: "Allumer"
               value: "turn_on"
-            - label: "Ausschalten"
+            - label: "Éteindre"
               value: "turn_off"
-            - label: "25% Helligkeit"
+            - label: "Luminosité 25%"
               value: "brightness_25"
-            - label: "50% Helligkeit"
+            - label: "Luminosité 50%"
               value: "brightness_50"
-            - label: "75% Helligkeit"
+            - label: "Luminosité 75%"
               value: "brightness_75"
-            - label: "100% Helligkeit"
+            - label: "Luminosité 100%"
               value: "brightness_100"
       default: "brightness_100"
-  
+
     button3_triple_press_scene:
-      name: "Button 3 – 3× Klick Szene (optional)"
+      name: "Bouton 3 – Clic 3× – Scène (optionnel)"
       selector:
         entity:
           domain: scene
       default: ""
-  
+
     button3_triple_press_cover:
-      name: "Button 3 – 3× Klick – Cover/Vorhang (optional)"
+      name: "Bouton 3 – Clic 3× – Cover/Volet (optionnel)"
       selector:
         entity:
           domain: cover
       default: ""
-  
+
     button3_triple_press_cover_action:
-      name: "Button 3 – 3× Klick – Cover-Aktion"
+      name: "Bouton 3 – Clic 3× – Action Cover"
       selector:
         select:
           options:
-            - label: "Toggle"
+            - label: "Basculer"
               value: "toggle"
-            - label: "Öffnen"
+            - label: "Ouvrir"
               value: "open"
-            - label: "Schließen"
+            - label: "Fermer"
               value: "close"
             - label: "Stop"
               value: "stop"
       default: "open"
-  
+
     button3_hold_light:
-      name: "Button 3 – Halten/Loslassen Lampe (optional)"
+      name: "Bouton 3 – Maintenir/Relâcher – Lampe (optionnel)"
       selector:
         entity:
           domain: light
       default: ""
-  
+
     button3_hold_direction:
-      name: "Button 3 – Dimmrichtung beim Halten"
+      name: "Bouton 3 – Sens de variation (maintien)"
       selector:
         select:
           options:
-            - label: "Heller werden (erhöhen)"
+            - label: "Augmenter (plus lumineux)"
               value: "brighter"
-            - label: "Dunkler werden (reduzieren)"
+            - label: "Diminuer (plus sombre)"
               value: "darker"
       default: "brighter"
-  
+
     button3_hold_brightness_step:
-      name: "Button 3 – Helligkeit pro Schritt (%)"
+      name: "Bouton 3 – Variation par pas (%)"
       default: 5
       selector:
         number:
@@ -570,12 +570,12 @@ trigger:
     entity_id:
       - !input button1_event_entity
     id: button1
-  
+
   - platform: state
     entity_id:
       - !input button2_event_entity
     id: button2
-  
+
   - platform: state
     entity_id:
       - !input button3_event_entity
@@ -588,7 +588,7 @@ action:
       button1_event: !input button1_event_entity
       button2_event: !input button2_event_entity
       button3_event: !input button3_event_entity
-      
+
       button1_single_press_light_value: !input button1_single_press_light
       button1_single_press_action_value: !input button1_single_press_action
       button1_double_press_light_value: !input button1_double_press_light
@@ -602,7 +602,7 @@ action:
       button1_hold_light_value: !input button1_hold_light
       button1_hold_direction_value: !input button1_hold_direction
       button1_hold_brightness_step_value: !input button1_hold_brightness_step
-      
+
       button2_single_press_light_value: !input button2_single_press_light
       button2_single_press_action_value: !input button2_single_press_action
       button2_double_press_light_value: !input button2_double_press_light
@@ -616,37 +616,37 @@ action:
       button2_hold_light_value: !input button2_hold_light
       button2_hold_direction_value: !input button2_hold_direction
       button2_hold_brightness_step_value: !input button2_hold_brightness_step
-      
+
       button3_single_press_type_var: !input button3_single_press_type
       button3_single_press_light_value: !input button3_single_press_light
       button3_single_press_action_value: !input button3_single_press_action
       button3_single_press_scene_var: !input button3_single_press_scene
       button3_single_press_cover_var: !input button3_single_press_cover
       button3_single_press_cover_action_var: !input button3_single_press_cover_action
-      
+
       button3_double_press_type_var: !input button3_double_press_type
       button3_double_press_light_value: !input button3_double_press_light
       button3_double_press_light_action_value: !input button3_double_press_light_action
       button3_double_press_scene_var: !input button3_double_press_scene
       button3_double_press_cover_var: !input button3_double_press_cover
       button3_double_press_cover_action_var: !input button3_double_press_cover_action
-      
+
       button3_triple_press_type_var: !input button3_triple_press_type
       button3_triple_press_light_value: !input button3_triple_press_light
       button3_triple_press_light_action_value: !input button3_triple_press_light_action
       button3_triple_press_scene_var: !input button3_triple_press_scene
       button3_triple_press_cover_var: !input button3_triple_press_cover
       button3_triple_press_cover_action_var: !input button3_triple_press_cover_action
-      
+
       button3_hold_light_value: !input button3_hold_light
       button3_hold_direction_value: !input button3_hold_direction
       button3_hold_brightness_step_value: !input button3_hold_brightness_step
-      
+
       event_type: "{{ state_attr(trigger.entity_id, 'event_type') }}"
       trigger_entity: "{{ trigger.entity_id }}"
 
   # ════════════════════════════════════════════════════════════
-  # BUTTON 1 - 1× KLICK
+  # BOUTON 1 - CLIC 1×
   # ════════════════════════════════════════════════════════════
   - if:
       - condition: template
@@ -712,7 +712,7 @@ action:
                   brightness_pct: 100
 
   # ════════════════════════════════════════════════════════════
-  # BUTTON 1 - 2× KLICK
+  # BOUTON 1 - CLIC 2×
   # ════════════════════════════════════════════════════════════
   - if:
       - condition: template
@@ -786,7 +786,7 @@ action:
                       brightness_pct: 100
 
   # ════════════════════════════════════════════════════════════
-  # BUTTON 1 - 3× KLICK
+  # BOUTON 1 - CLIC 3×
   # ════════════════════════════════════════════════════════════
   - if:
       - condition: template
@@ -860,7 +860,7 @@ action:
                       brightness_pct: 100
 
   # ════════════════════════════════════════════════════════════
-  # BUTTON 1 - HALTEN/LOSLASSEN
+  # BOUTON 1 - MAINTIEN
   # ════════════════════════════════════════════════════════════
   - if:
       - condition: template
@@ -883,7 +883,7 @@ action:
               brightness_step_pct: "{{ button1_hold_brightness_step_value * -1 }}"
 
   # ════════════════════════════════════════════════════════════
-  # BUTTON 2 - 1× KLICK
+  # BOUTON 2 - CLIC 1×
   # ════════════════════════════════════════════════════════════
   - if:
       - condition: template
@@ -949,7 +949,7 @@ action:
                   brightness_pct: 100
 
   # ════════════════════════════════════════════════════════════
-  # BUTTON 2 - 2× KLICK
+  # BOUTON 2 - CLIC 2×
   # ════════════════════════════════════════════════════════════
   - if:
       - condition: template
@@ -1023,7 +1023,7 @@ action:
                       brightness_pct: 100
 
   # ════════════════════════════════════════════════════════════
-  # BUTTON 2 - 3× KLICK
+  # BOUTON 2 - CLIC 3×
   # ════════════════════════════════════════════════════════════
   - if:
       - condition: template
@@ -1097,7 +1097,7 @@ action:
                       brightness_pct: 100
 
   # ════════════════════════════════════════════════════════════
-  # BUTTON 2 - HALTEN/LOSLASSEN
+  # BOUTON 2 - MAINTIEN
   # ════════════════════════════════════════════════════════════
   - if:
       - condition: template
@@ -1120,7 +1120,7 @@ action:
               brightness_step_pct: "{{ button2_hold_brightness_step_value * -1 }}"
 
   # ════════════════════════════════════════════════════════════
-  # BUTTON 3 - 1× KLICK (KORRIGIERT)
+  # BOUTON 3 - CLIC 1× (CORRIGÉ)
   # ════════════════════════════════════════════════════════════
   - if:
       - condition: template
@@ -1228,7 +1228,7 @@ action:
                           brightness_pct: 100
 
   # ════════════════════════════════════════════════════════════
-  # BUTTON 3 - 2× KLICK (KORRIGIERT)
+  # BOUTON 3 - CLIC 2× (CORRIGÉ)
   # ════════════════════════════════════════════════════════════
   - if:
       - condition: template
@@ -1336,7 +1336,7 @@ action:
                           brightness_pct: 100
 
   # ════════════════════════════════════════════════════════════
-  # BUTTON 3 - 3× KLICK (KORRIGIERT)
+  # BOUTON 3 - CLIC 3× (CORRIGÉ)
   # ════════════════════════════════════════════════════════════
   - if:
       - condition: template
@@ -1444,7 +1444,7 @@ action:
                           brightness_pct: 100
 
   # ════════════════════════════════════════════════════════════
-  # BUTTON 3 - HALTEN/LOSLASSEN
+  # BOUTON 3 - MAINTIEN
   # ════════════════════════════════════════════════════════════
   - if:
       - condition: template
